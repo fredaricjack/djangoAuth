@@ -1,0 +1,73 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Details | UserPortal</title>
+
+    <link rel="stylesheet" href="{% static 'css/read.css' %}">
+</head>
+
+<body>
+
+    <div class="read-container">
+
+        <h1>Account Details</h1>
+
+        <p class="subtitle">
+            View your personal account information.
+        </p>
+
+        <div class="profile">
+
+            <div class="avatar">
+                {{ user.username|first|upper }}
+            </div>
+
+            <div>
+                <h3>{{ user.username }}</h3>
+                <p>{{ user.email|default:"Email not provided" }}</p>
+            </div>
+
+        </div>
+
+        <div class="detail-row">
+            <span>Username</span>
+            <strong>{{ user.username }}</strong>
+        </div>
+
+        <div class="detail-row">
+            <span>Email Address</span>
+            <strong>{{ user.email|default:"Not provided" }}</strong>
+        </div>
+
+        <div class="detail-row">
+            <span>First Name</span>
+            <strong>{{ user.first_name|default:"Not provided" }}</strong>
+        </div>
+
+        <div class="detail-row">
+            <span>Last Name</span>
+            <strong>{{ user.last_name|default:"Not provided" }}</strong>
+        </div>
+
+        <div class="read-actions">
+
+            <a href="{% url 'home' %}" class="read-btn back-btn">
+                Back to Dashboard
+            </a>
+
+            <a href="{% url 'update' %}" class="read-btn update-btn">
+                Update Account
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

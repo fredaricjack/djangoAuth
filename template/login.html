@@ -1,0 +1,146 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In | UserPortal</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+            <!-- Logo -->
+            <div class="brand-logo">U</div>
+
+            <!-- Header -->
+            <div class="login-header">
+                <h1>Welcome Back!</h1>
+                <p>Sign in to continue to your account.</p>
+            </div>
+
+            <!-- Django Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <!-- Login Form -->
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">♙</span>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <div class="password-heading">
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">♧</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember_me">
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-btn">
+                    Sign In
+                    <span>→</span>
+                </button>
+
+            </form>
+
+            <!-- Registration -->
+            <div class="register-link">
+                Don't have an account?
+                <a href="{% url 'register' %}">Create Account</a>
+            </div>
+
+            <!-- Footer -->
+            <div class="login-footer">
+                Secure login powered by Django Authentication.
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 UserPortal. All rights reserved.
+        </div>
+
+    </div>
+
+    <!-- Show / Hide Password -->
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+
+            if (password.type === 'password') {
+                password.type = 'text';
+                togglePassword.textContent = 'Hide';
+                togglePassword.setAttribute('aria-label', 'Hide password');
+            } else {
+                password.type = 'password';
+                togglePassword.textContent = 'Show';
+                togglePassword.setAttribute('aria-label', 'Show password');
+            }
+
+        });
+    </script>
+
+</body>
+</html>

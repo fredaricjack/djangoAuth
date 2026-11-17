@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f6fa;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #1e293b;
+}
+
+/* MAIN CONTAINER */
+
+.read-container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(15, 23, 42, 0.08);
+}
+
+/* HEADING */
+
+.read-container h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #312e81;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+/* PROFILE */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    background: #ede9fe;
+    color: #6d28d9;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.profile h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.profile p {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* ACCOUNT DETAILS */
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-row span {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.detail-row strong {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* BUTTONS */
+
+.read-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.read-btn {
+    flex: 1;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.back-btn {
+    background: #64748b;
+    color: white;
+}
+
+.update-btn {
+    background: #4f46e5;
+    color: white;
+}
+
+.read-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 500px) {
+    .read-container {
+        padding: 22px;
+    }
+
+    .detail-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .read-actions {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,230 @@
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc, #e0e7ff);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+    color: #1e293b;
+}
+
+.register-wrapper {
+    width: 100%;
+    max-width: 460px;
+}
+
+.register-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(15, 23, 42, 0.10);
+    border: 1px solid #e2e8f0;
+}
+
+/* Logo */
+
+.brand-logo {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+/* Header */
+
+.register-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-header h1 {
+    font-size: 27px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.register-header p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Form */
+
+.form-fields p {
+    margin-bottom: 20px;
+}
+
+.form-fields label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.form-fields input,
+.form-fields select,
+.form-fields textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+    background: #ffffff;
+    color: #0f172a;
+}
+
+.form-fields input:focus,
+.form-fields select:focus,
+.form-fields textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.form-fields input::placeholder {
+    color: #94a3b8;
+}
+
+/* Help Text */
+
+.form-fields .helptext {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* Errors */
+
+.errorlist {
+    list-style: none;
+    color: #dc2626;
+    font-size: 12px;
+    margin: 5px 0 8px;
+}
+
+.error-box,
+.message.error {
+    padding: 12px;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.message.success {
+    padding: 12px;
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* Button */
+
+.register-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border: none;
+    border-radius: 9px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 5px;
+}
+
+.register-btn span {
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.register-btn:hover {
+    background: linear-gradient(135deg, #4338ca, #4f46e5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+/* Login */
+
+.login-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.login-link a,
+.footer-text a {
+    color: #4f46e5;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-link a:hover,
+.footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    .register-card {
+        padding: 28px 22px;
+    }
+
+    .register-header h1 {
+        font-size: 23px;
+    }
+
+}

@@ -1,0 +1,266 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | My Account</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">U</div>
+            <span>UserPortal</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <p class="menu-title">MENU</p>
+
+            <a href="{% url 'home' %}" class="menu-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="#account" class="menu-link">
+                <span>♙</span> My Account
+            </a>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+                <div class="small-avatar">
+                    {{ request.user.username|first|upper }}
+                </div>
+
+                <div>
+                    <strong>{{ request.user.username }}</strong>
+                    <small>Active Account</small>
+                </div>
+            </div>
+
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="sidebar-logout">
+                    ↪ Logout
+                </button>
+            </form>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Navigation -->
+        <header class="topbar">
+
+            <div>
+                <h2>Dashboard</h2>
+                <p>Manage your account and profile.</p>
+            </div>
+
+            <div class="top-profile">
+                <div class="profile-avatar">
+                    {{ request.user.username|first|upper }}
+                </div>
+
+                <span>{{ request.user.username }}</span>
+            </div>
+
+        </header>
+
+
+        <!-- Welcome Section -->
+        <section class="welcome-card">
+
+            <div class="welcome-content">
+
+                <span class="welcome-label">PERSONAL DASHBOARD</span>
+
+                <h1>
+                    Welcome back,
+                    {{ request.user.username }}!
+                </h1>
+
+                <p>
+                    We're happy to see you again.
+                    Your account is ready to use.
+                </p>
+
+                <div class="welcome-status">
+                    <span class="status-dot"></span>
+                    You are successfully logged in
+                </div>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <div class="decoration-circle">
+                    {{ request.user.username|first|upper }}
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Statistics Cards -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon purple">♙</div>
+
+                <div>
+                    <p>Account</p>
+                    <h3>Active</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+
+                <div>
+                    <p>Authentication</p>
+                    <h3>Verified Session</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">✉</div>
+
+                <div>
+                    <p>Email Address</p>
+                    <h3>
+                        {% if request.user.email %}
+                            Provided
+                        {% else %}
+                            Not Provided
+                        {% endif %}
+                    </h3>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Account Details -->
+        <section class="account-section" id="account">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Account Information</h2>
+                    <p>Your personal account details</p>
+                </div>
+
+                <span class="account-badge">● Active</span>
+            </div>
+
+
+            <div class="account-profile">
+
+                <div class="large-avatar">
+                    {{ request.user.username|first|upper }}
+                </div>
+
+                <div>
+                    <h3>{{ request.user.username }}</h3>
+                    <p>{{ request.user.email|default:"Email not provided" }}</p>
+                </div>
+
+            </div>
+
+
+            <div class="details-grid">
+
+                <div class="detail-item">
+                    <span>Username</span>
+                    <strong>{{ request.user.username }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Email Address</span>
+                    <strong>{{ request.user.email|default:"Not provided" }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>First Name</span>
+                    <strong>{{ request.user.first_name|default:"Not provided" }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Last Name</span>
+                    <strong>{{ request.user.last_name|default:"Not provided" }}</strong>
+                </div>
+
+            </div>
+
+              <!-- CRUD ACTION BUTTONS -->
+            <div class="account-actions">
+
+                <a href="{% url 'read' %}" class="action-btn read-btn">
+                    View Account
+                </a>
+
+                <a href="{% url 'update' %}" class="action-btn update-btn">
+                    Update Account
+                </a>
+
+                <form method="POST"
+                      action="{% url 'delete' %}"
+                      onsubmit="return confirm('Are you sure you want to permanently delete your account?');">
+
+                    {% csrf_token %}
+
+                    <button type="submit" class="action-btn delete-btn">
+                        Delete Account
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- Security Information -->
+        <section class="security-card">
+
+            <div class="security-icon">🔒</div>
+
+            <div class="security-content">
+                <h3>Your account is protected</h3>
+                <p>
+                    You are securely logged in using Django
+                    authentication.
+                </p>
+            </div>
+
+            <span class="secure-badge">Secure</span>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+            © 2026 UserPortal. All rights reserved.
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
